@@ -44,7 +44,7 @@ library(ggplot2)
 with(sum, qplot(steps, binwidth=2500, main="Total number of steps per day"))  
 ```
 
-![](PA1_template_files/figure-html/histogram steps-1.png)<!-- -->
+![](PA1_template_files/figure-html/histogram_steps-1.png)<!-- -->
 
 3. Mean and median of total number of steps per day  
 
@@ -67,7 +67,7 @@ with(mean, plot(date, steps, main="average daily 5 min interval steps over time"
 with(mean, lines(date, steps))
 ```
 
-![](PA1_template_files/figure-html/daily activity-1.png)<!-- -->
+![](PA1_template_files/figure-html/daily_activity-1.png)<!-- -->
 
 5. Maximum number of steps, by daily average :   
 
@@ -110,7 +110,7 @@ cleanSum <- summarize(cleanData, steps=sum(steps, na.rm=TRUE))
 with(cleanSum, qplot(steps, binwidth=2500, main="Total number of steps per day"))
 ```
 
-![](PA1_template_files/figure-html/total steps-1.png)<!-- -->
+![](PA1_template_files/figure-html/total_steps-1.png)<!-- -->
   
 The plot differs, we don't have the peak on the 0.  
 

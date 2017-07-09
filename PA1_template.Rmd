@@ -14,14 +14,14 @@ data <- read.csv("activity.csv")
 
 ## What is mean total number of steps taken per day?
 Calculate the total number of steps per day  
-```{r daymean step}  
+```{r daymean_step}  
 library(dplyr)
 dataDate <- group_by(data, date)
 sum <- summarize(dataDate, steps=sum(steps, na.rm=TRUE))
 ``` 
 
 2. Histogram of the total number of steps per day
-```{r histogram steps}  
+```{r histogram_steps}  
 library(ggplot2)  
 with(sum, qplot(steps, binwidth=2500, main="Total number of steps per day"))  
 ```
@@ -33,7 +33,7 @@ summary(sum$steps)
 
 ## What is the average daily activity pattern?
 4. Time series plot of the average steps for 5 min interval for each day. 
-```{r daily activity}
+```{r daily_activity}
 mean <- summarize(dataDate, steps=mean(steps, na.rm=TRUE))
 mean$date <- as.Date(as.character(mean$date))
 with(mean, plot(date, steps, main="average daily 5 min interval steps over time"))
@@ -41,7 +41,7 @@ with(mean, lines(date, steps))
 ```  
 
 5. Maximum number of steps, by daily average :   
-```{r steps max}  
+```{r steps_max}  
 filter(mean, steps==max(steps, na.rm=TRUE))  
 ```  
 
@@ -59,7 +59,7 @@ cleanData[is.na(cleanData$steps),1] <- temp
 ```  
 
 7. Histogram of the total number of steps taken each day  
-```{r total steps}
+```{r total_steps}
 cleanSum <- summarize(cleanData, steps=sum(steps, na.rm=TRUE))
 with(cleanSum, qplot(steps, binwidth=2500, main="Total number of steps per day"))
 ```   
@@ -67,7 +67,7 @@ with(cleanSum, qplot(steps, binwidth=2500, main="Total number of steps per day")
 The plot differs, we don't have the peak on the 0.  
 
 Mean and median of the total steps.  
-```{r steps summary}
+```{r steps_summary}
 summary(cleanSum$steps)
 ```  
 The median and the mean differs slightly.  
